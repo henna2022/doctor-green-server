@@ -28,12 +28,11 @@ const express = require('express');
 const axios = require('axios');
 const xml2js = require('xml2js');
 const cors = require('cors');
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-/* ─── 정적 파일 서빙 (HTML, CSS, JS) ─── */
-app.use(express.static(__dirname));
 
 /* ─── CORS — 클라이언트 도메인 화이트리스트 권장 ─── */
 app.use(cors({
@@ -101,6 +100,21 @@ function getCached(key, ttlMs) {
 function setCached(key, v) {
   cache.set(key, { t: Date.now(), v });
 }
+
+/* ═══════════════════════════════════════════════════
+   루트 경로: doctor_green.html 제공
+═══════════════════════════════════════════════════ */
+app.get('/', (req, res) => {
+  try {
+    const htmlPath = path.join(__dirname, 'doctor_green.html');
+    const html = fs.readFileSync(htmlPath, 'utf-8');
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.send(html);
+  } catch (e) {
+    console.error('Error reading HTML:', e.message);
+    res.status(500).json({ error: 'HTML file not found' });
+  }
+});
 
 /* ═══════════════════════════════════════════════════
    ① 기상청 단기예보
