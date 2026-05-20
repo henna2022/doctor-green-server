@@ -1,8 +1,34 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "buildCommand": "npm install",
   "public": ".",
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" }
+=======
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "doctor_green.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "server.js"
+    },
+    {
+      "src": "/doctor_green.html",
+      "dest": "/doctor_green.html"
+    },
+    {
+      "src": "/$",
+      "dest": "server.js"
+    }
+>>>>>>> 44867f11879c3b708cb916ce854506d9125820d3
   ]
 }
