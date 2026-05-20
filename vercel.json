@@ -1,11 +1,5 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "buildCommand": "npm install",
-  "public": ".",
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" }
-=======
   "builds": [
     {
       "src": "server.js",
@@ -29,6 +23,5 @@
       "src": "/$",
       "dest": "server.js"
     }
->>>>>>> 44867f11879c3b708cb916ce854506d9125820d3
   ]
 }
