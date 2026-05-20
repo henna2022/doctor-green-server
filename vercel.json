@@ -4,6 +4,10 @@
     {
       "src": "server.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "doctor_green.html",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -16,7 +20,7 @@
       "dest": "/doctor_green.html"
     },
     {
-      "src": "/(.*)",
+      "src": "/$",
       "dest": "server.js"
     }
   ]
