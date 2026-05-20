@@ -32,6 +32,9 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+/* ─── 정적 파일 서빙 (HTML, CSS, JS) ─── */
+app.use(express.static(__dirname));
+
 /* ─── CORS — 클라이언트 도메인 화이트리스트 권장 ─── */
 app.use(cors({
   origin: process.env.CLIENT_ORIGIN || '*'
