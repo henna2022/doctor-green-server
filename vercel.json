@@ -8,20 +8,21 @@
     {
       "src": "doctor_green.html",
       "use": "@vercel/static"
+    },
+    {
+      "src": "style.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "script.js",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "server.js"
-    },
-    {
-      "src": "/doctor_green.html",
-      "dest": "/doctor_green.html"
-    },
-    {
-      "src": "/$",
-      "dest": "server.js"
-    }
+    { "src": "/api/(.*)", "dest": "server.js" },
+    { "src": "/style.css", "dest": "/style.css" },
+    { "src": "/script.js", "dest": "/script.js" },
+    { "src": "/doctor_green.html", "dest": "/doctor_green.html" },
+    { "src": "/$", "dest": "server.js" }
   ]
 }
