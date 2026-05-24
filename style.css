@@ -215,3 +215,6 @@ body{font-family:'Noto Sans KR',-apple-system,sans-serif;background:#1a1a2e;disp
 /* ── 로딩 스피너 ── */
 .spin{animation:spin .8s linear infinite;}
 input{font-family:inherit;color:var(--txt);}
+
+/* ── 상태바(9:41, 와이파이, 배터리) 숨기기 ── */
+.sb{display:none !important;}
