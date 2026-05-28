@@ -218,3 +218,94 @@ input{font-family:inherit;color:var(--txt);}
 
 /* ── 상태바(9:41, 와이파이, 배터리) 숨기기 ── */
 .sb{display:none !important;}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   인증 화면 (로그인 / 회원가입 / 웰컴)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── 웰컴 화면 ── */
+#s-welcome{background:linear-gradient(180deg, var(--g1) 0%, var(--g2) 100%);}
+.welcome-wrap{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:40px 32px;color:#fff;text-align:center;
+}
+.welcome-logo{
+  width:96px;height:96px;border-radius:28px;background:rgba(255,255,255,.15);
+  display:flex;align-items:center;justify-content:center;font-size:56px;
+  margin-bottom:24px;backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.2);
+}
+.welcome-title{font-size:36px;font-weight:900;letter-spacing:-1px;margin-bottom:12px;}
+.welcome-sub{font-size:15px;opacity:.85;line-height:1.6;margin-bottom:48px;}
+.welcome-btns{width:100%;display:flex;flex-direction:column;gap:10px;}
+
+/* ── 인증 화면 공통 ── */
+.auth-title{font-size:22px;font-weight:800;color:var(--txt);margin-bottom:6px;letter-spacing:-.5px;}
+.auth-sub{font-size:13px;color:var(--txt2);margin-bottom:24px;line-height:1.5;}
+.auth-section-label{font-size:13px;font-weight:700;color:var(--txt);margin-bottom:8px;}
+.auth-field{margin-bottom:14px;}
+.auth-label{display:block;font-size:12px;font-weight:600;color:var(--txt2);margin-bottom:6px;}
+.auth-input{
+  width:100%;padding:13px 14px;border:1.5px solid var(--brd);border-radius:12px;
+  font-size:14px;font-family:inherit;background:var(--bg-card);color:var(--txt);
+  outline:none;transition:border-color .2s;
+}
+.auth-input:focus{border-color:var(--g3);}
+.auth-hint{font-size:11px;color:var(--txt3);margin-top:4px;}
+
+/* ── 버튼 ── */
+.auth-btn{
+  width:100%;padding:14px;border-radius:14px;font-size:15px;font-weight:700;
+  cursor:pointer;font-family:inherit;border:none;transition:all .2s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.auth-btn-primary{background:var(--g1);color:#fff;}
+.auth-btn-primary:hover{background:var(--g2);}
+.auth-btn-primary:disabled{background:var(--txt3);cursor:not-allowed;}
+.auth-btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4);}
+#s-login .auth-btn-ghost, #s-signup .auth-btn-ghost{
+  color:var(--g1);border-color:var(--g1);background:transparent;
+}
+
+/* ── 구분선 ── */
+.auth-divider{display:flex;align-items:center;gap:12px;margin:24px 0 12px;}
+.auth-divider::before,.auth-divider::after{
+  content:'';flex:1;height:1px;background:var(--brd);
+}
+.auth-divider span{font-size:12px;color:var(--txt2);}
+
+/* ── 에러 메시지 ── */
+.auth-error{
+  padding:10px 12px;background:rgba(240,128,128,.1);border:1px solid var(--red);
+  border-radius:10px;font-size:13px;color:var(--red);margin-bottom:12px;
+}
+
+/* ── 작물 칩 ── */
+.crop-chips{display:flex;flex-wrap:wrap;gap:6px;}
+.crop-chip{
+  padding:8px 12px;border:1.5px solid var(--brd);border-radius:20px;
+  font-size:13px;color:var(--txt2);cursor:pointer;background:var(--bg-card);
+  transition:all .2s;
+}
+.crop-chip.active{
+  background:var(--g5);border-color:var(--g3);color:var(--g1);font-weight:600;
+}
+
+/* ── 농장 형태 ── */
+.farm-type-options{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+.farm-type-opt{
+  padding:14px 8px;border:1.5px solid var(--brd);border-radius:12px;
+  font-size:12px;color:var(--txt2);cursor:pointer;background:var(--bg-card);
+  text-align:center;transition:all .2s;
+}
+.farm-type-opt.active{
+  background:var(--g5);border-color:var(--g3);color:var(--g1);font-weight:700;
+}
+
+/* 로딩 중 버튼 */
+.auth-btn.loading{position:relative;color:transparent;}
+.auth-btn.loading::after{
+  content:'';position:absolute;width:18px;height:18px;
+  border:2.5px solid #fff;border-top-color:transparent;border-radius:50%;
+  animation:spin .8s linear infinite;
+}

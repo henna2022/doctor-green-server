@@ -461,6 +461,142 @@
   </div>
 </div>
 
+<!-- ══ WELCOME (앱 시작 화면) ══ -->
+<div class="screen" id="s-welcome">
+  <div class="welcome-wrap">
+    <div class="welcome-logo">🌿</div>
+    <div class="welcome-title">닥터 그린</div>
+    <div class="welcome-sub">AI 작물 주치의<br>스마트한 농장 관리의 시작</div>
+    
+    <div class="welcome-btns">
+      <button class="auth-btn auth-btn-primary" onclick="go('signup')">
+        시작하기
+      </button>
+      <button class="auth-btn auth-btn-ghost" onclick="go('login')">
+        이미 계정이 있어요
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ LOGIN ══ -->
+<div class="screen" id="s-login">
+  <div class="sb"><span>9:41</span><span style="display:flex;gap:6px;"><i class="ti ti-wifi"></i><i class="ti ti-battery"></i></span></div>
+  <div class="hdr">
+    <div class="back" onclick="go('welcome')"><i class="ti ti-chevron-left"></i></div>
+    <div class="hdr-title">로그인</div>
+    <div style="width:28px;"></div>
+  </div>
+  
+  <div class="scroll" style="padding:24px 20px;">
+    <div class="auth-title">다시 오신 걸 환영해요 👋</div>
+    <div class="auth-sub">계정에 로그인하고 농장을 관리하세요</div>
+    
+    <div class="auth-field">
+      <label class="auth-label">이메일</label>
+      <input type="email" class="auth-input" id="login-email" placeholder="example@email.com" autocomplete="email">
+    </div>
+    
+    <div class="auth-field">
+      <label class="auth-label">비밀번호</label>
+      <input type="password" class="auth-input" id="login-password" placeholder="비밀번호 입력" autocomplete="current-password">
+    </div>
+    
+    <div class="auth-error" id="login-error" style="display:none;"></div>
+    
+    <button class="auth-btn auth-btn-primary" onclick="handleLogin()" id="login-btn">
+      로그인
+    </button>
+    
+    <div class="auth-divider">
+      <span>아직 계정이 없으신가요?</span>
+    </div>
+    
+    <button class="auth-btn auth-btn-ghost" onclick="go('signup')">
+      회원가입
+    </button>
+  </div>
+</div>
+
+<!-- ══ SIGNUP ══ -->
+<div class="screen" id="s-signup">
+  <div class="sb"><span>9:41</span><span style="display:flex;gap:6px;"><i class="ti ti-wifi"></i><i class="ti ti-battery"></i></span></div>
+  <div class="hdr">
+    <div class="back" onclick="go('welcome')"><i class="ti ti-chevron-left"></i></div>
+    <div class="hdr-title">회원가입</div>
+    <div style="width:28px;"></div>
+  </div>
+  
+  <div class="scroll" style="padding:24px 20px;">
+    <div class="auth-title">닥터 그린과 함께 🌱</div>
+    <div class="auth-sub">몇 가지 정보만 입력하면 바로 시작할 수 있어요</div>
+    
+    <!-- 필수 정보 -->
+    <div class="auth-section-label">기본 정보 <span style="color:var(--red);">*</span></div>
+    
+    <div class="auth-field">
+      <label class="auth-label">이름</label>
+      <input type="text" class="auth-input" id="signup-name" placeholder="홍길동">
+    </div>
+    
+    <div class="auth-field">
+      <label class="auth-label">이메일</label>
+      <input type="email" class="auth-input" id="signup-email" placeholder="example@email.com" autocomplete="email">
+    </div>
+    
+    <div class="auth-field">
+      <label class="auth-label">비밀번호</label>
+      <input type="password" class="auth-input" id="signup-password" placeholder="6자 이상 입력" autocomplete="new-password">
+      <div class="auth-hint">영문, 숫자 조합 6자 이상</div>
+    </div>
+    
+    <!-- 선택 정보 (농장 정보) -->
+    <div class="auth-section-label" style="margin-top:24px;">
+      농장 정보 <span style="color:var(--txt3);font-weight:400;font-size:11px;">(선택)</span>
+    </div>
+    <div class="auth-hint" style="margin-bottom:12px;">맞춤 알림과 추천을 받을 수 있어요</div>
+    
+    <div class="auth-field">
+      <label class="auth-label">농장 지역</label>
+      <input type="text" class="auth-input" id="signup-region" placeholder="예: 경기도 안성시">
+    </div>
+    
+    <div class="auth-field">
+      <label class="auth-label">주요 재배 작물</label>
+      <div class="crop-chips" id="signup-crops">
+        <div class="crop-chip" onclick="toggleCrop(this, '토마토')">🍅 토마토</div>
+        <div class="crop-chip" onclick="toggleCrop(this, '고추')">🌶️ 고추</div>
+        <div class="crop-chip" onclick="toggleCrop(this, '딸기')">🍓 딸기</div>
+        <div class="crop-chip" onclick="toggleCrop(this, '오이')">🥒 오이</div>
+        <div class="crop-chip" onclick="toggleCrop(this, '복숭아')">🍑 복숭아</div>
+        <div class="crop-chip" onclick="toggleCrop(this, '사과')">🍎 사과</div>
+        <div class="crop-chip" onclick="toggleCrop(this, '배추')">🥬 배추</div>
+        <div class="crop-chip" onclick="toggleCrop(this, '기타')">🌾 기타</div>
+      </div>
+    </div>
+    
+    <div class="auth-field">
+      <label class="auth-label">농장 형태</label>
+      <div class="farm-type-options">
+        <div class="farm-type-opt" onclick="selectFarmType(this, '시설하우스')">🏠 시설하우스</div>
+        <div class="farm-type-opt" onclick="selectFarmType(this, '노지')">🌾 노지</div>
+        <div class="farm-type-opt" onclick="selectFarmType(this, '혼합')">🔄 혼합</div>
+      </div>
+    </div>
+    
+    <div class="auth-error" id="signup-error" style="display:none;"></div>
+    
+    <button class="auth-btn auth-btn-primary" onclick="handleSignup()" id="signup-btn" style="margin-top:8px;">
+      가입하고 시작하기
+    </button>
+    
+    <div style="text-align:center;margin-top:16px;font-size:12px;color:var(--txt3);">
+      가입하면 <span style="color:var(--g2);">서비스 이용약관</span>과<br>
+      <span style="color:var(--g2);">개인정보처리방침</span>에 동의하는 것으로 간주됩니다
+    </div>
+  </div>
+</div>
+
 </div><!-- /phone -->
 
 <script src="script.js"></script>
