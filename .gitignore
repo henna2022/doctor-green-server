@@ -1,0 +1,7 @@
+# 환경변수
+.env
+.env.local
+.env*.local
+
+# Node modules (이미 있을 수도 있음)
+node_modules/

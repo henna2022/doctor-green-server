@@ -102,6 +102,16 @@ function setCached(key, v) {
 }
 
 /* ═══════════════════════════════════════════════════
+   Supabase 설정 키 전달
+═══════════════════════════════════════════════════ */
+app.get('/api/config', (req, res) => {
+  res.json({
+    supabaseUrl: process.env.SUPABASE_URL,
+    supabaseAnonKey: process.env.SUPABASE_ANON_KEY
+  });
+});
+
+/* ═══════════════════════════════════════════════════
    루트 경로: doctor_green.html 제공
 ═══════════════════════════════════════════════════ */
 app.get('/', (req, res) => {
